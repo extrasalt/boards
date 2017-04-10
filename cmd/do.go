@@ -33,7 +33,13 @@ boards do <id>
 
 `,
 	Run: func(cmd *cobra.Command, args []string) {
-		id = args[0]
+		if len(args) != 1 {
+			fmt.Println("Needs exactly one argument")
+			fmt.Println("USAGE: boards add <TODO>")
+			return
+		}
+
+		id := args[0]
 		fmt.Println("do called on", id)
 		//Move the task to TODAY
 		//Also print the task title to STDOUT

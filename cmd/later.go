@@ -28,7 +28,13 @@ var laterCmd = &cobra.Command{
 or if you couldn't do it as planned, you can always move 
 the task back to TODO using the later command`,
 	Run: func(cmd *cobra.Command, args []string) {
-		id = args[0]
+		if len(args) != 1 {
+			fmt.Println("Needs exactly one argument")
+			fmt.Println("USAGE: boards add <TODO>")
+			return
+		}
+
+		id := args[0]
 		fmt.Println("later called on", id)
 	},
 }

@@ -30,6 +30,12 @@ USAGE:
 
 `,
 	Run: func(cmd *cobra.Command, args []string) {
+		if len(args) != 1 {
+			fmt.Println("Needs exactly one argument")
+			fmt.Println("USAGE: boards add <TODO>")
+			return
+		}
+
 		id := args[0]
 
 		fmt.Println("md called on", id)
