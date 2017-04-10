@@ -23,16 +23,18 @@ import (
 // addCmd represents the add command
 var addCmd = &cobra.Command{
 	Use:   "add",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
-
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+	Short: "Add new TODO",
+	Long: `Adds a new task from the given string
+ to the TODO column`,
 	Run: func(cmd *cobra.Command, args []string) {
+
+		if len(args) != 1 {
+			fmt.Println("Needs exactly one argument")
+			fmt.Println("USAGE: boards add <TODO>")
+			return
+		}
 		// TODO: Work your own magic here
-		fmt.Println("add called")
+		fmt.Println("ADDED", args[0])
 	},
 }
 
